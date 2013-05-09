@@ -16,6 +16,9 @@ public class GetInfo {
 	}
 	
 	public static String getIp() {
+		/**
+		 * Method to return text from my simple online getip script.
+		 */
 		try {
 			String out = new Scanner(new URL("http://www.lotusdev.net/dev/getip.php").openStream(), "UTF-8").useDelimiter("\\A").next();
 			return out;

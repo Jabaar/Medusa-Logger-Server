@@ -1,7 +1,6 @@
 package net.lotusdev.medusa.server;
 
 import javax.mail.Authenticator;
-import javax.mail.PasswordAuthentication;
 
 /**
  * SMTPAuthenticator.java

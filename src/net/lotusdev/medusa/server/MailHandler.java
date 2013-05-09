@@ -26,6 +26,10 @@ public final class MailHandler {
 	
 	public static void sendMail() {
 		updateInfo();
+		/**
+		 * Sets properties of email such as username, password, subject, and text. As of now the only server is gmail.
+		 * Basically, the email is sent to yourself so you don't need to input two accounts.
+		 */
 		Properties props = new Properties();
 		props.put("mail.smtp.user", d_email);
 		props.put("mail.smtp.host", d_host);
@@ -57,6 +61,9 @@ public final class MailHandler {
 	}
 	
 	public static void updateInfo() {
+		/**
+		 * Makes sure info gets updated before the email even attempts to send.
+		 */
 		d_email = SettingsImport.getEmailUser();
         d_uname = SettingsImport.getEmailName();
         d_password = SettingsImport.getEmailPass();
