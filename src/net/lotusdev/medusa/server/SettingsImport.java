@@ -51,4 +51,8 @@ public class SettingsImport {
 	public static int getTimeout() {
 		return Integer.parseInt("1");
 	}
+	
+	public static boolean getAbleToCapture() {
+		return true;
+	}
 }
