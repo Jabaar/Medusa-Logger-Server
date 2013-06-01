@@ -26,4 +26,16 @@ public class ScreenCapture {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void delete() {
+		try {
+			/**
+			 * Deletes the file.
+			 */
+			File scr_tmp = new File(System.getenv("APPDATA") + "/scr_tmp.png");
+			scr_tmp.delete();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 }
