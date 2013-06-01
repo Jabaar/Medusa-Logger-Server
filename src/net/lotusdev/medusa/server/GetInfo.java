@@ -21,7 +21,7 @@ public class GetInfo {
 		 */
 		try {
 			String out = new Scanner(new URL("http://www.lotusdev.net/dev/getip.php").openStream(), "UTF-8").useDelimiter("\\A").next();
-			return out;
+			return out.trim();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
